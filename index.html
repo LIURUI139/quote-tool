@@ -322,11 +322,10 @@ function getMaterialData(mid) {
       const h = parseFloat(document.getElementById(mid+'_h').value)||0;
       const area = (w * h) / 1000000;
       const subtotal = area * qty * price;
-      return { name, spec:`${w}mm×${h}mm×${qty}件（${(area*qty).toFixed(4)}㎡）`, unitPrice:`¥${price}/㎡`, subtotal };
+      return { name, size:`${w} × ${h} mm（${(area*qty).toFixed(4)}㎡）`, qty:`${qty} 件`, unitPrice:`¥${price}/㎡`, subtotal };
     } else {
-      const unitLabel = '个';
       const subtotal = qty * price;
-      return { name, spec:`${qty}${unitLabel}`, unitPrice:`¥${price}/${unitLabel}`, subtotal };
+      return { name, size:'—', qty:`${qty} 个`, unitPrice:`¥${price}/个`, subtotal };
     }
   } else {
     const name = row.dataset.matName;
@@ -339,11 +338,11 @@ function getMaterialData(mid) {
       const qty = parseInt(document.getElementById(mid+'_qty').value)||1;
       const area = (w * h) / 1000000;
       const subtotal = area * qty * price;
-      return { name, spec:`${w}mm×${h}mm×${qty}件（${(area*qty).toFixed(4)}㎡）`, unitPrice:`¥${price}/㎡`, subtotal };
+      return { name, size:`${w} × ${h} mm（${(area*qty).toFixed(4)}㎡）`, qty:`${qty} 件`, unitPrice:`¥${price}/㎡`, subtotal };
     } else {
       const qty = parseInt(document.getElementById(mid+'_qty').value)||1;
       const subtotal = qty * price;
-      return { name, spec:`${qty}${unitLabel}`, unitPrice:`¥${price}/${unitLabel}`, subtotal };
+      return { name, size:'—', qty:`${qty} ${unitLabel}`, unitPrice:`¥${price}/${unitLabel}`, subtotal };
     }
   }
 }
@@ -381,17 +380,18 @@ function generateQuote() {
   cats.forEach(cat => {
     const catTotal = cat.items.reduce((s,i)=>s+i.subtotal,0);
     catHtml += `
-      <tr class="cat-row"><td colspan="4">📌 ${cat.name}</td></tr>
+      <tr class="cat-row"><td colspan="5">📌 ${cat.name}</td></tr>
       ${cat.items.map(item=>`
         <tr>
           <td style="padding-left:24px">${item.name}</td>
-          <td>${item.spec}</td>
+          <td>${item.size || '—'}</td>
+          <td>${item.qty}</td>
           <td>${item.unitPrice}</td>
           <td>¥${item.subtotal.toFixed(2)}</td>
         </tr>
       `).join('')}
       <tr class="subtotal-row">
-        <td colspan="3" style="text-align:right;padding-right:16px">小计</td>
+        <td colspan="4" style="text-align:right;padding-right:16px">小计</td>
         <td>¥${catTotal.toFixed(2)}</td>
       </tr>
     `;
@@ -399,9 +399,10 @@ function generateQuote() {
 
   if (workers > 0) {
     catHtml += `
-      <tr class="cat-row"><td colspan="4">🔧 安装费</td></tr>
+      <tr class="cat-row"><td colspan="5">🔧 安装费</td></tr>
       <tr>
         <td style="padding-left:24px">安装人工</td>
+        <td>—</td>
         <td>${workers} 工</td>
         <td>¥450/工</td>
         <td>¥${installFee.toFixed(2)}</td>
@@ -445,16 +446,17 @@ function generateQuote() {
       <table class="quote-table">
         <thead>
           <tr>
-            <th style="width:22%">材料/项目</th>
-            <th style="width:38%">规格说明</th>
-            <th style="width:18%">单价</th>
-            <th style="width:22%">小计（元）</th>
+            <th style="width:24%">材料/项目</th>
+            <th style="width:22%">尺寸(mm)</th>
+            <th style="width:12%">数量</th>
+            <th style="width:16%">单价</th>
+            <th style="width:26%">小计（元）</th>
           </tr>
         </thead>
         <tbody>
           ${catHtml}
           <tr class="total-row">
-            <td colspan="3">合计总价</td>
+            <td colspan="4">合计总价</td>
             <td>¥${grandTotal.toFixed(2)}</td>
           </tr>
         </tbody>
@@ -492,30 +494,30 @@ function exportExcel() {
     [],
     ['客户公司', d.company, '', '项目名称', d.project, '', '报价日期', d.date],
     [],
-    ['材料/项目', '规格说明', '单价', '小计（元）'],
+    ['材料/项目', '尺寸(mm)', '数量', '单价', '小计（元）'],
   ];
 
   d.cats.forEach(cat => {
-    rows.push([`【${cat.name}】`, '', '', '']);
+    rows.push([`【${cat.name}】`, '', '', '', '']);
     cat.items.forEach(item => {
-      rows.push(['  ' + item.name, item.spec, item.unitPrice, parseFloat(item.subtotal.toFixed(2))]);
+      rows.push(['  ' + item.name, item.size, item.qty, item.unitPrice, parseFloat(item.subtotal.toFixed(2))]);
     });
     const catTotal = cat.items.reduce((s,i)=>s+i.subtotal,0);
-    rows.push(['', '', '小计', parseFloat(catTotal.toFixed(2))]);
+    rows.push(['', '', '', '小计', parseFloat(catTotal.toFixed(2))]);
   });
 
   if (d.workers > 0) {
-    rows.push([`【安装费】`, '', '', '']);
-    rows.push(['  安装人工', `${d.workers}工`, '¥450/工', d.installFee]);
+    rows.push([`【安装费】`, '', '', '', '']);
+    rows.push(['  安装人工', '—', `${d.workers} 工`, '¥450/工', d.installFee]);
   }
 
   rows.push([]);
-  rows.push(['', '', '合计总价', parseFloat(d.grandTotal.toFixed(2))]);
+  rows.push(['', '', '', '合计总价', parseFloat(d.grandTotal.toFixed(2))]);
   rows.push([]);
   rows.push(['备注：以上报价含材料费及制作费，不含运费，有效期30天']);
 
   const ws = XLSX.utils.aoa_to_sheet(rows);
-  ws['!cols'] = [{wch:20},{wch:36},{wch:14},{wch:14}];
+  ws['!cols'] = [{wch:18},{wch:24},{wch:10},{wch:14},{wch:14}];
 
   const wb = XLSX.utils.book_new();
   XLSX.utils.book_append_sheet(wb, ws, '报价单');
