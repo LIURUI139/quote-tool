@@ -438,27 +438,25 @@ function exportExcel() {
 }
 
 function exportPDF() {
-  const element = document.getElementById('quoteWrap');
-  const btnRow = document.querySelector('#result .btn-row');
-  if (btnRow) btnRow.style.display = 'none';
+  const originalTitle = document.title;
+  const company = window._quoteData?.company || '报价单';
+  const date = window._quoteData?.date || '';
+  document.title = '报价单_' + company + '_' + date;
   
-  const opt = {
-    margin: [10, 10, 10, 10],
-    filename: '报价单_'+window._quoteData.company+'_'+window._quoteData.date+'.pdf',
-    image: { type: 'jpeg', quality: 0.98 },
-    html2canvas: { 
-      scale: 2, 
-      useCORS: true,
-      logging: false,
-      allowTaint: true,
-      backgroundColor: '#ffffff'
-    },
-    jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
-  };
+  // 临时隐藏按钮
+  const btnRows = document.querySelectorAll('.btn-row');
+  btnRows.forEach(row => row.style.visibility = 'hidden');
   
-  html2pdf().set(opt).from(element).save().then(() => {
-    if (btnRow) btnRow.style.display = 'flex';
-  });
+  // 延迟执行打印，确保渲染完成
+  setTimeout(() => {
+    window.print();
+    
+    // 恢复
+    setTimeout(() => {
+      document.title = originalTitle;
+      btnRows.forEach(row => row.style.visibility = 'visible');
+    }, 500);
+  }, 100);
 }
 
 function resetAll() {
