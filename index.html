@@ -6,109 +6,99 @@
 <title>亿智报价工具</title>
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
-body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif;background:#f0f2f5;min-height:100vh;padding:20px 16px}
-.container{max-width:860px;margin:0 auto}
-h1{text-align:center;color:#1a1a2e;font-size:22px;margin-bottom:4px}
-.subtitle{text-align:center;color:#888;font-size:13px;margin-bottom:22px}
-
-.card{background:#fff;border-radius:12px;padding:20px;margin-bottom:14px;box-shadow:0 2px 8px rgba(0,0,0,.06)}
-.card-title{font-size:15px;font-weight:700;color:#333;margin-bottom:14px;border-left:3px solid #4f8ef7;padding-left:10px}
-
+body{font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif;background:#fff5f0;min-height:100vh;padding:20px 16px}
+.container{max-width:900px;margin:0 auto}
+h1{text-align:center;color:#e67e22;font-size:24px;margin-bottom:4px}
+.subtitle{text-align:center;color:#999;font-size:13px;margin-bottom:22px}
+.card{background:#fff;border-radius:12px;padding:20px;margin-bottom:14px;box-shadow:0 2px 8px rgba(230,126,34,.1)}
+.card-title{font-size:15px;font-weight:700;color:#333;margin-bottom:14px;border-left:3px solid #e67e22;padding-left:10px}
 .form-row{display:flex;gap:12px;flex-wrap:wrap}
 .fg{display:flex;flex-direction:column;flex:1;min-width:130px}
 .fg label{font-size:12px;color:#666;margin-bottom:4px}
 .fg input,.fg select{border:1px solid #ddd;border-radius:8px;padding:8px 10px;font-size:14px;outline:none;transition:border .2s;background:#fff}
-.fg input:focus,.fg select:focus{border-color:#4f8ef7}
-
-/* 类别块 */
-.category-block{background:#f8f9fc;border:1px solid #e8eaf0;border-radius:10px;padding:16px;margin-bottom:12px}
+.fg input:focus,.fg select:focus{border-color:#e67e22}
 .cat-header{display:flex;align-items:center;gap:10px;margin-bottom:14px}
 .cat-title-input{flex:1;border:1px solid #ddd;border-radius:8px;padding:7px 12px;font-size:14px;font-weight:600;outline:none}
-.cat-title-input:focus{border-color:#4f8ef7}
+.cat-title-input:focus{border-color:#e67e22}
 .btn-del-cat{background:#fee;border:1px solid #fcc;color:#c0392b;border-radius:6px;padding:5px 12px;font-size:13px;cursor:pointer}
 .btn-del-cat:hover{background:#fdd}
-
-/* 材料行 */
 .mat-rows{display:flex;flex-direction:column;gap:8px;margin-bottom:10px}
-.mat-row{display:flex;align-items:center;gap:8px;flex-wrap:wrap;background:#fff;border:1px solid #eee;border-radius:8px;padding:10px 12px}
-.mat-row input[type=checkbox]{width:15px;height:15px;accent-color:#4f8ef7;cursor:pointer;flex-shrink:0}
+.mat-row{display:flex;align-items:center;gap:8px;flex-wrap:wrap;background:#fff;border:1px solid #ffe8d6;border-radius:8px;padding:10px 12px}
+.mat-row input[type=checkbox]{width:15px;height:15px;accent-color:#e67e22;cursor:pointer;flex-shrink:0}
 .mat-name{font-size:13px;font-weight:600;color:#333;min-width:90px}
-.mat-tag{font-size:11px;color:#888;background:#f0f2f5;border-radius:4px;padding:2px 6px}
+.mat-tag{font-size:11px;color:#e67e22;background:#fff5f0;border-radius:4px;padding:2px 6px}
 .mat-inputs{display:flex;gap:8px;flex-wrap:wrap;flex:1}
 .mat-inputs .fg{min-width:80px;max-width:120px}
 .mat-inputs .fg label{font-size:11px}
 .mat-inputs .fg input{padding:6px 8px;font-size:13px}
-.mat-subtotal{font-size:12px;color:#4f8ef7;min-width:120px;text-align:right}
+.mat-subtotal{font-size:12px;color:#e67e22;min-width:120px;text-align:right}
 .btn-del-mat{background:none;border:none;color:#ccc;font-size:16px;cursor:pointer;padding:0 4px;flex-shrink:0}
 .btn-del-mat:hover{color:#e74c3c}
-
-/* 自定义材料 */
-.custom-mat-row{background:#fffbf0;border:1px dashed #f0c040}
-
-.btn-add-mat{background:none;border:1px dashed #4f8ef7;color:#4f8ef7;border-radius:6px;padding:6px 14px;font-size:13px;cursor:pointer;margin-top:4px}
-.btn-add-mat:hover{background:#f0f6ff}
-
-.btn-add-cat{background:#4f8ef7;color:#fff;border:none;border-radius:8px;padding:10px 24px;font-size:14px;cursor:pointer;font-weight:600;display:block;margin:0 auto}
-.btn-add-cat:hover{background:#3a7de0}
-
-/* 安装费 */
-.install-row{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
-.install-row label{font-size:14px;color:#333}
-.install-row input{border:1px solid #ddd;border-radius:8px;padding:8px 10px;font-size:14px;width:90px;outline:none}
-.install-row input:focus{border-color:#4f8ef7}
-.install-hint{font-size:13px;color:#888}
-
-/* 按钮行 */
-.btn-row{display:flex;gap:12px;justify-content:center;margin-top:6px}
-.btn{padding:11px 32px;border-radius:8px;border:none;font-size:15px;cursor:pointer;font-weight:600;transition:all .2s}
-.btn-primary{background:#4f8ef7;color:#fff}
-.btn-primary:hover{background:#3a7de0}
+.custom-mat-row{background:#fffbf5;border:1px dashed #f0a030}
+.btn-add-mat{background:none;border:1px dashed #e67e22;color:#e67e22;border-radius:6px;padding:6px 14px;font-size:13px;cursor:pointer;margin-top:4px}
+.btn-add-mat:hover{background:#fff5f0}
+.btn-add-cat{background:#e67e22;color:#fff;border:none;border-radius:8px;padding:10px 24px;font-size:14px;cursor:pointer;font-weight:600;display:block;margin:0 auto}
+.btn-add-cat:hover{background:#d35400}
+.fee-row{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:10px}
+.fee-row label{font-size:14px;color:#333;min-width:100px}
+.fee-row input{border:1px solid #ddd;border-radius:8px;padding:8px 10px;font-size:14px;width:120px;outline:none}
+.fee-row input:focus{border-color:#e67e22}
+.fee-hint{font-size:13px;color:#888}
+.btn-row{display:flex;gap:12px;justify-content:center;margin-top:6px;flex-wrap:wrap}
+.btn{padding:11px 28px;border-radius:8px;border:none;font-size:15px;cursor:pointer;font-weight:600;transition:all .2s}
+.btn-primary{background:#e67e22;color:#fff}
+.btn-primary:hover{background:#d35400}
 .btn-reset{background:#f0f2f5;color:#555}
 .btn-reset:hover{background:#e0e3ea}
 .btn-export{background:#27ae60;color:#fff}
 .btn-export:hover{background:#1e9450}
-
-/* ===== 报价单打印样式 ===== */
+.btn-pdf{background:#e74c3c;color:#fff}
+.btn-pdf:hover{background:#c0392b}
 #result{display:none;margin-top:16px}
 .quote-wrap{background:#fff;border-radius:12px;padding:32px;box-shadow:0 2px 12px rgba(0,0,0,.08)}
-
-.quote-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:24px;padding-bottom:20px;border-bottom:2px solid #4f8ef7}
-.quote-company h2{font-size:20px;color:#1a1a2e;font-weight:800;margin-bottom:4px}
+.quote-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:24px;padding-bottom:20px;border-bottom:3px solid #e67e22}
+.quote-company h2{font-size:22px;color:#e67e22;font-weight:800;margin-bottom:4px}
 .quote-company p{font-size:12px;color:#888}
 .quote-title-block{text-align:right}
-.quote-title-block h3{font-size:22px;font-weight:800;color:#4f8ef7;letter-spacing:2px}
+.quote-title-block h3{font-size:24px;font-weight:800;color:#e67e22;letter-spacing:3px}
 .quote-title-block p{font-size:12px;color:#888;margin-top:4px}
-
-.quote-meta{display:flex;gap:0;margin-bottom:20px;border:1px solid #e8eaf0;border-radius:8px;overflow:hidden}
-.quote-meta-item{flex:1;padding:10px 16px;border-right:1px solid #e8eaf0}
+.quote-meta{display:flex;gap:0;margin-bottom:20px;border:1px solid #ffe8d6;border-radius:8px;overflow:hidden}
+.quote-meta-item{flex:1;padding:10px 16px;border-right:1px solid #ffe8d6}
 .quote-meta-item:last-child{border-right:none}
 .quote-meta-item .meta-label{font-size:11px;color:#999;margin-bottom:3px}
 .quote-meta-item .meta-value{font-size:14px;font-weight:600;color:#333}
-
 .quote-section{margin-bottom:20px}
-.quote-section-title{font-size:13px;font-weight:700;color:#fff;background:#4f8ef7;padding:7px 14px;border-radius:6px 6px 0 0;display:inline-block;margin-bottom:0}
+.quote-section-title{font-size:13px;font-weight:700;color:#fff;background:#e67e22;padding:8px 16px;border-radius:6px 6px 0 0;display:inline-block;margin-bottom:0}
 .quote-table{width:100%;border-collapse:collapse;font-size:13px}
-.quote-table th{background:#f0f5ff;color:#4f8ef7;padding:9px 12px;text-align:left;font-weight:700;border-bottom:2px solid #d0e0ff}
-.quote-table td{padding:8px 12px;border-bottom:1px solid #f0f0f0;color:#333}
+.quote-table th{background:#fff5f0;color:#e67e22;padding:10px 12px;text-align:left;font-weight:700;border-bottom:2px solid #e67e22}
+.quote-table td{padding:9px 12px;border-bottom:1px solid #f5f5f5;color:#333}
 .quote-table tr:last-child td{border-bottom:none}
-.quote-table tr:hover td{background:#fafbff}
-.quote-table .cat-row td{background:#f8f9fc;font-weight:700;color:#4f8ef7;font-size:13px;padding:7px 12px}
-.quote-table .subtotal-row td{background:#f0f5ff;font-weight:600;color:#333;font-size:13px}
-.quote-table .total-row td{background:#4f8ef7;color:#fff;font-weight:800;font-size:15px;padding:12px}
-
+.quote-table tr:hover td{background:#fffbf5}
+.quote-table .cat-row td{background:#fff5f0;font-weight:700;color:#e67e22;font-size:13px;padding:8px 12px}
+.quote-table .subtotal-row td{background:#fff5f0;font-weight:600;color:#333;font-size:13px}
+.quote-table .total-row td{background:#e67e22;color:#fff;font-weight:800;font-size:16px;padding:14px}
+.quote-table .discount-row td{background:#e8f5e9;color:#27ae60;font-weight:600}
+.quote-table .tax-row td{background:#e3f2fd;color:#1976d2;font-weight:600}
+.quote-table .final-row td{background:#d35400;color:#fff;font-weight:800;font-size:17px;padding:16px}
 .quote-footer{margin-top:24px;padding-top:16px;border-top:1px solid #eee;display:flex;justify-content:space-between;align-items:flex-end}
-.quote-note{font-size:12px;color:#999;line-height:1.8}
+.quote-note{font-size:12px;color:#666;line-height:1.8}
+.quote-note strong{color:#e67e22}
 .quote-sign{text-align:right}
 .quote-sign p{font-size:12px;color:#999;margin-bottom:20px}
 .quote-sign .sign-line{border-top:1px solid #ccc;width:160px;margin-left:auto;padding-top:4px;font-size:12px;color:#999;text-align:center}
+@media print{
+  body{background:#fff;padding:0}
+  .container{max-width:100%}
+  .card,.btn-row{display:none}
+  #result{display:block!important}
+  .quote-wrap{box-shadow:none;padding:20px}
+}
 </style>
 </head>
 <body>
 <div class="container">
-  <h1>🎨 亿智企业形象设计</h1>
+  <h1>亿智企业形象设计</h1>
   <p class="subtitle">报价计算工具</p>
-
-  <!-- 基本信息 -->
   <div class="card">
     <div class="card-title">基本信息</div>
     <div class="form-row">
@@ -116,57 +106,83 @@ h1{text-align:center;color:#1a1a2e;font-size:22px;margin-bottom:4px}
       <div class="fg"><label>项目名称</label><input type="text" id="projectName" placeholder="请输入项目名称"></div>
       <div class="fg" style="max-width:160px"><label>报价日期</label><input type="date" id="quoteDate"></div>
     </div>
-  </div>
-
-  <!-- 类别列表 -->
-  <div id="categoryList"></div>
-
-  <div class="card" style="text-align:center;padding:14px">
-    <button class="btn-add-cat" onclick="addCategory()">＋ 添加类别（如：前台背景墙、走廊文化墙）</button>
-  </div>
-
-  <!-- 安装费 -->
-  <div class="card">
-    <div class="card-title">安装费</div>
-    <div class="install-row">
-      <label>安装工人数：</label>
-      <input type="number" id="workers" min="0" value="0" oninput="updateWorkerHint()">
-      <span class="install-hint" id="workerHint">¥450/工 × 0 = ¥0.00</span>
+    <div class="form-row" style="margin-top:12px">
+      <div class="fg"><label>工期（天）</label><input type="number" id="projectDays" placeholder="如：15" min="1"></div>
+      <div class="fg"><label>联系人</label><input type="text" id="contactName" placeholder="客户联系人"></div>
+      <div class="fg"><label>联系电话</label><input type="text" id="contactPhone" placeholder="联系电话"></div>
     </div>
   </div>
-
+  <div id="categoryList"></div>
+  <div class="card" style="text-align:center;padding:14px">
+    <button class="btn-add-cat" onclick="addCategory()">+ 添加类别（如：前台背景墙、走廊文化墙）</button>
+  </div>
+  <div class="card">
+    <div class="card-title">设计费</div>
+    <div class="fee-row">
+      <label>设计费金额：</label>
+      <input type="number" id="designFee" min="0" value="0" oninput="updateFeeHint()">
+      <span class="fee-hint" id="designHint">¥0.00</span>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-title">安装费</div>
+    <div class="fee-row">
+      <label>安装工人数：</label>
+      <input type="number" id="workers" min="0" value="0" oninput="updateWorkerHint()">
+      <span class="fee-hint" id="workerHint">¥450/工 × 0 = ¥0.00</span>
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-title">优惠</div>
+    <div class="fee-row">
+      <label>优惠金额：</label>
+      <input type="number" id="discount" min="0" value="0" oninput="updateDiscountHint()">
+      <span class="fee-hint" id="discountHint">¥0.00</span>
+    </div>
+    <div class="fee-row" style="margin-top:8px">
+      <label>优惠说明：</label>
+      <input type="text" id="discountNote" placeholder="如：老客户优惠、量大从优" style="flex:1;max-width:300px">
+    </div>
+  </div>
+  <div class="card">
+    <div class="card-title">税率</div>
+    <div class="fee-row">
+      <label>税率：</label>
+      <select id="taxRate" style="width:100px" onchange="updateTaxHint()">
+        <option value="0">免税</option>
+        <option value="0.01">1%</option>
+        <option value="0.03" selected>3%</option>
+        <option value="0.06">6%</option>
+        <option value="0.09">9%</option>
+        <option value="0.13">13%</option>
+      </select>
+      <span class="fee-hint" id="taxHint">税额将在生成时自动计算</span>
+    </div>
+  </div>
   <div class="btn-row">
     <button class="btn btn-reset" onclick="resetAll()">重置</button>
     <button class="btn btn-primary" onclick="generateQuote()">生成报价单</button>
   </div>
-
-  <!-- 报价单 -->
   <div id="result">
-    <div class="quote-wrap" id="quoteWrap">
-      <!-- 动态生成 -->
-    </div>
+    <div class="quote-wrap" id="quoteWrap"></div>
     <div class="btn-row" style="margin-top:16px">
-      <button class="btn btn-export" onclick="exportExcel()">📥 导出 Excel</button>
+      <button class="btn btn-export" onclick="exportExcel()">导出 Excel</button>
+      <button class="btn btn-pdf" onclick="exportPDF()">导出 PDF</button>
     </div>
   </div>
 </div>
-
 <script src="https://cdn.sheetjs.com/xlsx-0.20.1/package/dist/xlsx.full.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 <script>
-// 预设材料库
 const PRESET_MATERIALS = [
-  { name:'宣绒布',      unit:'area', unitLabel:'㎡', price:100  },
-  { name:'亚克力焗漆字', unit:'area', unitLabel:'㎡', price:800  },
-  { name:'车贴',        unit:'area', unitLabel:'㎡', price:50   },
-  { name:'PVC板',       unit:'area', unitLabel:'㎡', price:350  },
-  { name:'亚克力板',    unit:'area', unitLabel:'㎡', price:500  },
-  { name:'亚克力盒',    unit:'qty',  unitLabel:'个', price:35   },
+  { name:'宣绒布', unit:'area', unitLabel:'㎡', price:100 },
+  { name:'亚克力焗漆字', unit:'area', unitLabel:'㎡', price:800 },
+  { name:'车贴', unit:'area', unitLabel:'㎡', price:50 },
+  { name:'PVC板', unit:'area', unitLabel:'㎡', price:350 },
+  { name:'亚克力板', unit:'area', unitLabel:'㎡', price:500 },
+  { name:'亚克力盒', unit:'qty', unitLabel:'个', price:35 },
 ];
-
-let catCount = 0;
-let matCount = 0;
-
-// 设置默认日期
+let catCount = 0, matCount = 0;
 document.getElementById('quoteDate').valueAsDate = new Date();
 
 function addCategory(name='') {
@@ -175,30 +191,17 @@ function addCategory(name='') {
   const div = document.createElement('div');
   div.className = 'card';
   div.id = cid;
-  div.innerHTML = `
-    <div class="cat-header">
-      <input class="cat-title-input" type="text" placeholder="类别名称（如：前台背景墙）" value="${name}">
-      <button class="btn-del-cat" onclick="document.getElementById('${cid}').remove()">删除类别</button>
-    </div>
-    <div class="mat-rows" id="rows_${cid}"></div>
-    <div style="display:flex;gap:8px;flex-wrap:wrap">
-      <button class="btn-add-mat" onclick="showPresetPicker('${cid}')">＋ 添加预设材料</button>
-      <button class="btn-add-mat" style="border-color:#f0a030;color:#f0a030" onclick="addCustomMat('${cid}')">＋ 自定义材料</button>
-    </div>
-  `;
+  div.innerHTML = '<div class="cat-header"><input class="cat-title-input" type="text" placeholder="类别名称（如：前台背景墙）" value="'+name+'"><button class="btn-del-cat" onclick="document.getElementById(\''+cid+'\').remove()">删除类别</button></div><div class="mat-rows" id="rows_'+cid+'"></div><div style="display:flex;gap:8px;flex-wrap:wrap"><button class="btn-add-mat" onclick="showPresetPicker(\''+cid+'\')">+ 添加预设材料</button><button class="btn-add-mat" style="border-color:#f0a030;color:#f0a030" onclick="addCustomMat(\''+cid+'\')">+ 自定义材料</button></div>';
   document.getElementById('categoryList').appendChild(div);
 }
 
 function showPresetPicker(cid) {
-  // 弹出简单选择
-  const names = PRESET_MATERIALS.map((m,i)=>`${i+1}. ${m.name}（¥${m.price}/${m.unitLabel}）`).join('\n');
-  const input = prompt('选择预设材料（输入序号，多个用逗号分隔）：\n\n' + names);
+  const names = PRESET_MATERIALS.map((m,i)=>(i+1)+'. '+m.name+'（¥'+m.price+'/'+m.unitLabel+'）').join('\n');
+  const input = prompt('选择预设材料（输入序号，多个用逗号分隔）：\n\n'+names);
   if (!input) return;
   input.split(',').forEach(s => {
     const idx = parseInt(s.trim()) - 1;
-    if (idx >= 0 && idx < PRESET_MATERIALS.length) {
-      addPresetMat(cid, PRESET_MATERIALS[idx]);
-    }
+    if (idx >= 0 && idx < PRESET_MATERIALS.length) addPresetMat(cid, PRESET_MATERIALS[idx]);
   });
 }
 
@@ -209,22 +212,7 @@ function addPresetMat(cid, mat) {
   const row = document.createElement('div');
   row.className = 'mat-row';
   row.id = mid;
-  row.innerHTML = `
-    <input type="checkbox" id="chk_${mid}" checked>
-    <span class="mat-name">${mat.name}</span>
-    <span class="mat-tag">¥${mat.price}/${mat.unitLabel}</span>
-    <div class="mat-inputs">
-      ${isArea ? `
-        <div class="fg"><label>宽(mm)</label><input type="number" id="${mid}_w" placeholder="宽" min="0" oninput="calcMat('${mid}',${mat.price},'area')"></div>
-        <div class="fg"><label>高(mm)</label><input type="number" id="${mid}_h" placeholder="高" min="0" oninput="calcMat('${mid}',${mat.price},'area')"></div>
-        <div class="fg"><label>数量</label><input type="number" id="${mid}_qty" value="1" min="1" oninput="calcMat('${mid}',${mat.price},'area')"></div>
-      ` : `
-        <div class="fg"><label>数量(${mat.unitLabel})</label><input type="number" id="${mid}_qty" value="1" min="1" oninput="calcMat('${mid}',${mat.price},'qty')"></div>
-      `}
-    </div>
-    <span class="mat-subtotal" id="sub_${mid}">小计：—</span>
-    <button class="btn-del-mat" onclick="document.getElementById('${mid}').remove()" title="删除">✕</button>
-  `;
+  row.innerHTML = '<input type="checkbox" id="chk_'+mid+'" checked><span class="mat-name">'+mat.name+'</span><span class="mat-tag">¥'+mat.price+'/'+mat.unitLabel+'</span><div class="mat-inputs">'+(isArea?'<div class="fg"><label>宽(mm)</label><input type="number" id="'+mid+'_w" placeholder="宽" min="0" oninput="calcMat(\''+mid+'\','+mat.price+',\'area\')"></div><div class="fg"><label>高(mm)</label><input type="number" id="'+mid+'_h" placeholder="高" min="0" oninput="calcMat(\''+mid+'\','+mat.price+',\'area\')"></div><div class="fg"><label>数量</label><input type="number" id="'+mid+'_qty" value="1" min="1" oninput="calcMat(\''+mid+'\','+mat.price+',\'area\')"></div>':'<div class="fg"><label>数量('+mat.unitLabel+')</label><input type="number" id="'+mid+'_qty" value="1" min="1" oninput="calcMat(\''+mid+'\','+mat.price+',\'qty\')"></div>')+'</div><span class="mat-subtotal" id="sub_'+mid+'">小计：—</span><button class="btn-del-mat" onclick="document.getElementById(\''+mid+'\').remove()" title="删除">x</button>';
   row.dataset.matName = mat.name;
   row.dataset.unit = mat.unit;
   row.dataset.price = mat.price;
@@ -238,26 +226,7 @@ function addCustomMat(cid) {
   const row = document.createElement('div');
   row.className = 'mat-row custom-mat-row';
   row.id = mid;
-  row.innerHTML = `
-    <input type="checkbox" id="chk_${mid}" checked>
-    <div class="mat-inputs" style="flex:1">
-      <div class="fg" style="min-width:110px;max-width:160px"><label>材料名称</label><input type="text" id="${mid}_name" placeholder="材料名称" oninput="calcCustom('${mid}')"></div>
-      <div class="fg" style="max-width:90px"><label>单位</label>
-        <select id="${mid}_unittype" onchange="toggleCustomUnit('${mid}')">
-          <option value="area">按面积</option>
-          <option value="qty">按数量</option>
-        </select>
-      </div>
-      <div class="fg" style="max-width:90px"><label>单价(元)</label><input type="number" id="${mid}_price" placeholder="单价" min="0" oninput="calcCustom('${mid}')"></div>
-      <div id="custom_area_${mid}" style="display:flex;gap:8px">
-        <div class="fg"><label>宽(mm)</label><input type="number" id="${mid}_w" placeholder="宽" min="0" oninput="calcCustom('${mid}')"></div>
-        <div class="fg"><label>高(mm)</label><input type="number" id="${mid}_h" placeholder="高" min="0" oninput="calcCustom('${mid}')"></div>
-      </div>
-      <div class="fg" style="max-width:90px"><label>数量</label><input type="number" id="${mid}_qty" value="1" min="1" oninput="calcCustom('${mid}')"></div>
-    </div>
-    <span class="mat-subtotal" id="sub_${mid}">小计：—</span>
-    <button class="btn-del-mat" onclick="document.getElementById('${mid}').remove()" title="删除">✕</button>
-  `;
+  row.innerHTML = '<input type="checkbox" id="chk_'+mid+'" checked><div class="mat-inputs" style="flex:1"><div class="fg" style="min-width:110px;max-width:160px"><label>材料名称</label><input type="text" id="'+mid+'_name" placeholder="材料名称" oninput="calcCustom(\''+mid+'\')"></div><div class="fg" style="max-width:90px"><label>单位</label><select id="'+mid+'_unittype" onchange="toggleCustomUnit(\''+mid+'\')"><option value="area">按面积</option><option value="qty">按数量</option></select></div><div class="fg" style="max-width:90px"><label>单价(元)</label><input type="number" id="'+mid+'_price" placeholder="单价" min="0" oninput="calcCustom(\''+mid+'\')"></div><div id="custom_area_'+mid+'" style="display:flex;gap:8px"><div class="fg"><label>宽(mm)</label><input type="number" id="'+mid+'_w" placeholder="宽" min="0" oninput="calcCustom(\''+mid+'\')"></div><div class="fg"><label>高(mm)</label><input type="number" id="'+mid+'_h" placeholder="高" min="0" oninput="calcCustom(\''+mid+'\')"></div></div><div class="fg" style="max-width:90px"><label>数量</label><input type="number" id="'+mid+'_qty" value="1" min="1" oninput="calcCustom(\''+mid+'\')"></div></div><span class="mat-subtotal" id="sub_'+mid+'">小计：—</span><button class="btn-del-mat" onclick="document.getElementById(\''+mid+'\').remove()" title="删除">x</button>';
   row.dataset.custom = '1';
   document.getElementById('rows_' + cid).appendChild(row);
 }
@@ -274,13 +243,13 @@ function calcMat(mid, price, unit) {
     const w = parseFloat(document.getElementById(mid+'_w').value)||0;
     const h = parseFloat(document.getElementById(mid+'_h').value)||0;
     const qty = parseInt(document.getElementById(mid+'_qty').value)||1;
-    const area = (w * h) / 1000000; // mm² → ㎡
+    const area = (w * h) / 1000000;
     subtotal = area * qty * price;
-    document.getElementById('sub_'+mid).textContent = w&&h ? `${(area*qty).toFixed(4)}㎡ | ¥${subtotal.toFixed(2)}` : '小计：—';
+    document.getElementById('sub_'+mid).textContent = w&&h ? (area*qty).toFixed(4)+'㎡ | ¥'+subtotal.toFixed(2) : '小计：—';
   } else {
     const qty = parseInt(document.getElementById(mid+'_qty').value)||0;
     subtotal = qty * price;
-    document.getElementById('sub_'+mid).textContent = `小计：¥${subtotal.toFixed(2)}`;
+    document.getElementById('sub_'+mid).textContent = '小计：¥'+subtotal.toFixed(2);
   }
 }
 
@@ -293,17 +262,28 @@ function calcCustom(mid) {
     const qty = parseInt(document.getElementById(mid+'_qty').value)||1;
     const area = (w * h) / 1000000;
     const subtotal = area * qty * price;
-    document.getElementById('sub_'+mid).textContent = w&&h&&price ? `${(area*qty).toFixed(4)}㎡ | ¥${subtotal.toFixed(2)}` : '小计：—';
+    document.getElementById('sub_'+mid).textContent = w&&h&&price ? (area*qty).toFixed(4)+'㎡ | ¥'+subtotal.toFixed(2) : '小计：—';
   } else {
     const qty = parseInt(document.getElementById(mid+'_qty').value)||0;
     const subtotal = qty * price;
-    document.getElementById('sub_'+mid).textContent = price ? `小计：¥${subtotal.toFixed(2)}` : '小计：—';
+    document.getElementById('sub_'+mid).textContent = price ? '小计：¥'+subtotal.toFixed(2) : '小计：—';
   }
 }
 
+function updateFeeHint() {
+  const v = parseFloat(document.getElementById('designFee').value)||0;
+  document.getElementById('designHint').textContent = '¥'+v.toFixed(2);
+}
 function updateWorkerHint() {
   const n = parseInt(document.getElementById('workers').value)||0;
-  document.getElementById('workerHint').textContent = `¥450/工 × ${n} = ¥${(n*450).toFixed(2)}`;
+  document.getElementById('workerHint').textContent = '¥450/工 × '+n+' = ¥'+(n*450).toFixed(2);
+}
+function updateDiscountHint() {
+  const v = parseFloat(document.getElementById('discount').value)||0;
+  document.getElementById('discountHint').textContent = '¥'+v.toFixed(2);
+}
+function updateTaxHint() {
+  document.getElementById('taxHint').textContent = '税额将在生成时自动计算';
 }
 
 function getMaterialData(mid) {
@@ -311,7 +291,6 @@ function getMaterialData(mid) {
   if (!chk || !chk.checked) return null;
   const row = document.getElementById(mid);
   if (!row) return null;
-
   if (row.dataset.custom === '1') {
     const name = document.getElementById(mid+'_name').value.trim() || '自定义材料';
     const price = parseFloat(document.getElementById(mid+'_price').value)||0;
@@ -322,10 +301,10 @@ function getMaterialData(mid) {
       const h = parseFloat(document.getElementById(mid+'_h').value)||0;
       const area = (w * h) / 1000000;
       const subtotal = area * qty * price;
-      return { name, size:`${w} × ${h} mm（${(area*qty).toFixed(4)}㎡）`, qty:`${qty} 件`, unitPrice:`¥${price}/㎡`, subtotal };
+      return { name, size:w+' × '+h+' mm', area:(area*qty).toFixed(4)+'㎡', qty:qty+' 件', unitPrice:'¥'+price+'/㎡', subtotal };
     } else {
       const subtotal = qty * price;
-      return { name, size:'—', qty:`${qty} 个`, unitPrice:`¥${price}/个`, subtotal };
+      return { name, size:'—', area:'—', qty:qty+' 个', unitPrice:'¥'+price+'/个', subtotal };
     }
   } else {
     const name = row.dataset.matName;
@@ -338,11 +317,11 @@ function getMaterialData(mid) {
       const qty = parseInt(document.getElementById(mid+'_qty').value)||1;
       const area = (w * h) / 1000000;
       const subtotal = area * qty * price;
-      return { name, size:`${w} × ${h} mm（${(area*qty).toFixed(4)}㎡）`, qty:`${qty} 件`, unitPrice:`¥${price}/㎡`, subtotal };
+      return { name, size:w+' × '+h+' mm', area:(area*qty).toFixed(4)+'㎡', qty:qty+' 件', unitPrice:'¥'+price+'/㎡', subtotal };
     } else {
       const qty = parseInt(document.getElementById(mid+'_qty').value)||1;
       const subtotal = qty * price;
-      return { name, size:'—', qty:`${qty} ${unitLabel}`, unitPrice:`¥${price}/${unitLabel}`, subtotal };
+      return { name, size:'—', area:'—', qty:qty+' '+unitLabel, unitPrice:'¥'+price+'/'+unitLabel, subtotal };
     }
   }
 }
@@ -351,9 +330,16 @@ function generateQuote() {
   const company = document.getElementById('companyName').value.trim()||'—';
   const project = document.getElementById('projectName').value.trim()||'—';
   const date = document.getElementById('quoteDate').value||'—';
+  const days = document.getElementById('projectDays').value||'—';
+  const contact = document.getElementById('contactName').value.trim()||'—';
+  const phone = document.getElementById('contactPhone').value.trim()||'—';
+  const designFee = parseFloat(document.getElementById('designFee').value)||0;
   const workers = parseInt(document.getElementById('workers').value)||0;
+  const installFee = workers * 450;
+  const discount = parseFloat(document.getElementById('discount').value)||0;
+  const discountNote = document.getElementById('discountNote').value.trim();
+  const taxRate = parseFloat(document.getElementById('taxRate').value)||0;
 
-  // 收集类别数据
   const cats = [];
   document.querySelectorAll('#categoryList .card').forEach(catEl => {
     const catName = catEl.querySelector('.cat-title-input').value.trim() || '未命名类别';
@@ -366,170 +352,119 @@ function generateQuote() {
     if (items.length > 0) cats.push({ name: catName, items });
   });
 
-  if (cats.length === 0 && workers === 0) { alert('请至少添加一个类别并填写材料！'); return; }
+  if (cats.length === 0 && designFee === 0 && workers === 0) { alert('请至少添加一个类别或填写费用！'); return; }
 
-  let grandTotal = 0;
-  cats.forEach(c => c.items.forEach(i => grandTotal += i.subtotal));
-  const installFee = workers * 450;
-  grandTotal += installFee;
-
-  // 生成报价单 HTML
+  let materialsTotal = 0;
+  cats.forEach(c => c.items.forEach(i => materialsTotal += i.subtotal));
+  const subtotal = materialsTotal + designFee + installFee;
+  const afterDiscount = Math.max(0, subtotal - discount);
+  const tax = afterDiscount * taxRate;
+  const grandTotal = afterDiscount + tax;
   const quoteNo = 'YZ' + date.replace(/-/g,'') + String(Math.floor(Math.random()*900)+100);
 
   let catHtml = '';
   cats.forEach(cat => {
     const catTotal = cat.items.reduce((s,i)=>s+i.subtotal,0);
-    catHtml += `
-      <tr class="cat-row"><td colspan="5">📌 ${cat.name}</td></tr>
-      ${cat.items.map(item=>`
-        <tr>
-          <td style="padding-left:24px">${item.name}</td>
-          <td>${item.size || '—'}</td>
-          <td>${item.qty}</td>
-          <td>${item.unitPrice}</td>
-          <td>¥${item.subtotal.toFixed(2)}</td>
-        </tr>
-      `).join('')}
-      <tr class="subtotal-row">
-        <td colspan="4" style="text-align:right;padding-right:16px">小计</td>
-        <td>¥${catTotal.toFixed(2)}</td>
-      </tr>
-    `;
+    catHtml += '<tr class="cat-row"><td colspan="6">'+cat.name+'</td></tr>';
+    cat.items.forEach(item => {
+      catHtml += '<tr><td style="padding-left:24px">'+item.name+'</td><td>'+item.size+'</td><td>'+item.area+'</td><td>'+item.qty+'</td><td>'+item.unitPrice+'</td><td>¥'+item.subtotal.toFixed(2)+'</td></tr>';
+    });
+    catHtml += '<tr class="subtotal-row"><td colspan="5" style="text-align:right;padding-right:16px">'+cat.name+' 小计</td><td>¥'+catTotal.toFixed(2)+'</td></tr>';
   });
 
-  if (workers > 0) {
-    catHtml += `
-      <tr class="cat-row"><td colspan="5">🔧 安装费</td></tr>
-      <tr>
-        <td style="padding-left:24px">安装人工</td>
-        <td>—</td>
-        <td>${workers} 工</td>
-        <td>¥450/工</td>
-        <td>¥${installFee.toFixed(2)}</td>
-      </tr>
-    `;
+  let feeHtml = '';
+  if (designFee > 0) feeHtml += '<tr><td style="padding-left:24px">设计费</td><td>—</td><td>—</td><td>—</td><td>—</td><td>¥'+designFee.toFixed(2)+'</td></tr>';
+  if (workers > 0) feeHtml += '<tr><td style="padding-left:24px">安装人工</td><td>—</td><td>—</td><td>'+workers+' 工</td><td>¥450/工</td><td>¥'+installFee.toFixed(2)+'</td></tr>';
+  if (feeHtml) catHtml += '<tr class="cat-row"><td colspan="6">其他费用</td></tr>' + feeHtml;
+
+  let summaryHtml = '';
+  summaryHtml += '<tr class="subtotal-row"><td colspan="5" style="text-align:right;padding-right:16px">材料及费用合计</td><td>¥'+subtotal.toFixed(2)+'</td></tr>';
+  if (discount > 0) {
+    summaryHtml += '<tr class="discount-row"><td colspan="5" style="text-align:right;padding-right:16px">优惠'+(discountNote?'（'+discountNote+'）':'')+'</td><td>-¥'+discount.toFixed(2)+'</td></tr>';
+    summaryHtml += '<tr class="subtotal-row"><td colspan="5" style="text-align:right;padding-right:16px">优惠后金额</td><td>¥'+afterDiscount.toFixed(2)+'</td></tr>';
   }
+  if (taxRate > 0) summaryHtml += '<tr class="tax-row"><td colspan="5" style="text-align:right;padding-right:16px">税额（'+(taxRate*100).toFixed(0)+'%）</td><td>¥'+tax.toFixed(2)+'</td></tr>';
+  summaryHtml += '<tr class="final-row"><td colspan="5">总计金额（人民币）</td><td>¥'+grandTotal.toFixed(2)+'</td></tr>';
 
-  document.getElementById('quoteWrap').innerHTML = `
-    <div class="quote-top">
-      <div class="quote-company">
-        <h2>深圳市亿智企业形象设计有限公司</h2>
-        <p>专注企业形象设计 · 文化墙 · 标识导视</p>
-      </div>
-      <div class="quote-title-block">
-        <h3>报 价 单</h3>
-        <p>编号：${quoteNo}</p>
-      </div>
-    </div>
-
-    <div class="quote-meta">
-      <div class="quote-meta-item">
-        <div class="meta-label">客户公司</div>
-        <div class="meta-value">${company}</div>
-      </div>
-      <div class="quote-meta-item">
-        <div class="meta-label">项目名称</div>
-        <div class="meta-value">${project}</div>
-      </div>
-      <div class="quote-meta-item">
-        <div class="meta-label">报价日期</div>
-        <div class="meta-value">${date}</div>
-      </div>
-      <div class="quote-meta-item">
-        <div class="meta-label">有效期</div>
-        <div class="meta-value">30 天</div>
-      </div>
-    </div>
-
-    <div class="quote-section">
-      <div class="quote-section-title">报价明细</div>
-      <table class="quote-table">
-        <thead>
-          <tr>
-            <th style="width:24%">材料/项目</th>
-            <th style="width:22%">尺寸(mm)</th>
-            <th style="width:12%">数量</th>
-            <th style="width:16%">单价</th>
-            <th style="width:26%">小计（元）</th>
-          </tr>
-        </thead>
-        <tbody>
-          ${catHtml}
-          <tr class="total-row">
-            <td colspan="4">合计总价</td>
-            <td>¥${grandTotal.toFixed(2)}</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-
-    <div class="quote-footer">
-      <div class="quote-note">
-        <p>备注：</p>
-        <p>1. 以上报价含材料费及制作费，不含运费</p>
-        <p>2. 报价有效期 30 天，逾期请重新确认</p>
-        <p>3. 如有疑问请联系我们</p>
-      </div>
-      <div class="quote-sign">
-        <p>报价方：深圳市亿智企业形象设计有限公司</p>
-        <div class="sign-line">授权签字 / 盖章</div>
-      </div>
-    </div>
-  `;
+  document.getElementById('quoteWrap').innerHTML = 
+    '<div class="quote-top"><div class="quote-company"><h2>深圳市亿智企业形象设计有限公司</h2><p>专注企业形象设计 · 文化墙 · 标识导视</p></div><div class="quote-title-block"><h3>报 价 单</h3><p>编号：'+quoteNo+'</p></div></div>'+
+    '<div class="quote-meta"><div class="quote-meta-item"><div class="meta-label">客户公司</div><div class="meta-value">'+company+'</div></div><div class="quote-meta-item"><div class="meta-label">项目名称</div><div class="meta-value">'+project+'</div></div><div class="quote-meta-item"><div class="meta-label">工期</div><div class="meta-value">'+days+' 天</div></div><div class="quote-meta-item"><div class="meta-label">报价日期</div><div class="meta-value">'+date+'</div></div></div>'+
+    '<div class="quote-meta" style="margin-top:12px"><div class="quote-meta-item"><div class="meta-label">联系人</div><div class="meta-value">'+contact+'</div></div><div class="quote-meta-item"><div class="meta-label">联系电话</div><div class="meta-value">'+phone+'</div></div><div class="quote-meta-item"><div class="meta-label">有效期</div><div class="meta-value">30 天</div></div></div>'+
+    '<div class="quote-section"><div class="quote-section-title">报价明细</div><table class="quote-table"><thead><tr><th style="width:20%">材料/项目</th><th style="width:18%">尺寸(mm)</th><th style="width:14%">面积</th><th style="width:12%">数量</th><th style="width:16%">单价</th><th style="width:20%">小计（元）</th></tr></thead><tbody>'+catHtml+summaryHtml+'</tbody></table></div>'+
+    '<div class="quote-footer"><div class="quote-note"><p><strong>备注：</strong></p><p>1. 以上报价含材料费及制作费，不含运费</p><p>2. 报价有效期 30 天，逾期请重新确认</p><p>3. 付款方式：合同签订付 50%，验收合格后付 50%</p><p>4. 工期自预付款到账之日起计算</p></div><div class="quote-sign"><p>报价方：深圳市亿智企业形象设计有限公司</p><div class="sign-line">授权签字 / 盖章</div></div></div>';
 
   document.getElementById('result').style.display = 'block';
   document.getElementById('result').scrollIntoView({ behavior:'smooth' });
-
-  // 存数据供导出
-  window._quoteData = { company, project, date, quoteNo, cats, workers, installFee, grandTotal };
+  window._quoteData = { company, project, date, days, contact, phone, quoteNo, cats, designFee, workers, installFee, discount, discountNote, taxRate, subtotal, afterDiscount, tax, grandTotal };
 }
 
 function exportExcel() {
   const d = window._quoteData;
   if (!d) return;
-
   const rows = [
     ['深圳市亿智企业形象设计有限公司 - 报价单'],
-    [`报价编号：${d.quoteNo}`],
+    ['报价编号：'+d.quoteNo],
     [],
-    ['客户公司', d.company, '', '项目名称', d.project, '', '报价日期', d.date],
+    ['客户公司',d.company,'','项目名称',d.project,'','报价日期',d.date],
+    ['工期',d.days+' 天','','联系人',d.contact,'','联系电话',d.phone],
     [],
-    ['材料/项目', '尺寸(mm)', '数量', '单价', '小计（元）'],
+    ['材料/项目','尺寸(mm)','面积','数量','单价','小计（元）']
   ];
-
   d.cats.forEach(cat => {
-    rows.push([`【${cat.name}】`, '', '', '', '']);
-    cat.items.forEach(item => {
-      rows.push(['  ' + item.name, item.size, item.qty, item.unitPrice, parseFloat(item.subtotal.toFixed(2))]);
-    });
+    rows.push([cat.name,'','','','','']);
+    cat.items.forEach(item => rows.push(['  '+item.name,item.size,item.area,item.qty,item.unitPrice,parseFloat(item.subtotal.toFixed(2))]));
     const catTotal = cat.items.reduce((s,i)=>s+i.subtotal,0);
-    rows.push(['', '', '', '小计', parseFloat(catTotal.toFixed(2))]);
+    rows.push(['','','','',cat.name+' 小计',parseFloat(catTotal.toFixed(2))]);
   });
-
-  if (d.workers > 0) {
-    rows.push([`【安装费】`, '', '', '', '']);
-    rows.push(['  安装人工', '—', `${d.workers} 工`, '¥450/工', d.installFee]);
+  if (d.designFee > 0 || d.workers > 0) {
+    rows.push(['其他费用','','','','','']);
+    if (d.designFee > 0) rows.push(['  设计费','—','—','—','—',d.designFee]);
+    if (d.workers > 0) rows.push(['  安装人工','—','—',d.workers+' 工','¥450/工',d.installFee]);
   }
-
-  rows.push([]);
-  rows.push(['', '', '', '合计总价', parseFloat(d.grandTotal.toFixed(2))]);
+  rows.push(['','','','','材料及费用合计',parseFloat(d.subtotal.toFixed(2))]);
+  if (d.discount > 0) {
+    rows.push(['','','','','优惠'+(d.discountNote?'（'+d.discountNote+'）':''),-d.discount]);
+    rows.push(['','','','','优惠后金额',parseFloat(d.afterDiscount.toFixed(2))]);
+  }
+  if (d.taxRate > 0) rows.push(['','','','','税额（'+(d.taxRate*100).toFixed(0)+'%）',parseFloat(d.tax.toFixed(2))]);
+  rows.push(['','','','','总计金额（人民币）',parseFloat(d.grandTotal.toFixed(2))]);
   rows.push([]);
   rows.push(['备注：以上报价含材料费及制作费，不含运费，有效期30天']);
-
   const ws = XLSX.utils.aoa_to_sheet(rows);
-  ws['!cols'] = [{wch:18},{wch:24},{wch:10},{wch:14},{wch:14}];
-
+  ws['!cols'] = [{wch:18},{wch:16},{wch:12},{wch:10},{wch:14},{wch:14}];
   const wb = XLSX.utils.book_new();
   XLSX.utils.book_append_sheet(wb, ws, '报价单');
-  XLSX.writeFile(wb, `报价单_${d.company}_${d.date}.xlsx`);
+  XLSX.writeFile(wb, '报价单_'+d.company+'_'+d.date+'.xlsx');
+}
+
+function exportPDF() {
+  const element = document.getElementById('quoteWrap');
+  const opt = {
+    margin: 10,
+    filename: '报价单_'+window._quoteData.company+'_'+window._quoteData.date+'.pdf',
+    image: { type: 'jpeg', quality: 0.98 },
+    html2canvas: { scale: 2, useCORS: true },
+    jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+  };
+  html2pdf().set(opt).from(element).save();
 }
 
 function resetAll() {
   document.getElementById('companyName').value='';
   document.getElementById('projectName').value='';
   document.getElementById('quoteDate').valueAsDate=new Date();
+  document.getElementById('projectDays').value='';
+  document.getElementById('contactName').value='';
+  document.getElementById('contactPhone').value='';
+  document.getElementById('designFee').value=0;
   document.getElementById('workers').value=0;
+  document.getElementById('discount').value=0;
+  document.getElementById('discountNote').value='';
+  document.getElementById('taxRate').value=0.03;
+  updateFeeHint();
   updateWorkerHint();
+  updateDiscountHint();
+  updateTaxHint();
   document.getElementById('categoryList').innerHTML='';
   document.getElementById('result').style.display='none';
   catCount=0; matCount=0;
